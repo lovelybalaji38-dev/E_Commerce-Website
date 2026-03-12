@@ -38,26 +38,45 @@ const images = [
 let index = 0;
 const image = document.getElementById("hero-image");
 
-function changeImage() {
-    index = (index + 1) % images.length;
-    image.src = images[index];
-}
+if (image) {
 
-setInterval(changeImage, 3000);
+    function changeImage() {
+        index = (index + 1) % images.length;
+        image.src = images[index];
+    }
+
+    setInterval(changeImage, 3000);
+}
 
 
 
 // SEARCH ICON 
 
 
+// const searchIcon = document.getElementById("searchIcon");
+// const searchBox = document.getElementById("searchBox");
+// const searchInput = document.getElementById("searchInput");
+
+// searchIcon.addEventListener("click", () => {
+//     searchBox.style.display =
+//         searchBox.style.display === "block" ? "none" : "block";
+// });
 const searchIcon = document.getElementById("searchIcon");
 const searchBox = document.getElementById("searchBox");
-const searchInput = document.getElementById("searchInput");
 
-searchIcon.addEventListener("click", () => {
-    searchBox.style.display =
-        searchBox.style.display === "block" ? "none" : "block";
-});
+if (searchIcon && searchBox) {
+    searchIcon.addEventListener("click", () => {
+
+        if (searchBox.style.display === "block") {
+            searchBox.style.display = "none";
+        } else {
+            searchBox.style.display = "block";
+        }
+
+    });
+}
+
+
 
 // SEARCH ONLY WHEN ENTER PRESS
 searchInput.addEventListener("keypress", function (e) {
