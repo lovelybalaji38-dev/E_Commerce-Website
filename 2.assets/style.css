@@ -129,10 +129,213 @@
     color: black;
 }
 
-/* .search-box{
-    display:none;
+/* UI/UX IMPROVEMENTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
 }
 
-.search-box.active{
-    display:block;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+}
+
+.card {
+    border-radius: 16px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+}
+
+.card-img-top, .image-wrapper img {
+    transition: transform 0.4s ease !important;
+}
+
+.card:hover .card-img-top, .image-wrapper:hover img {
+    transform: scale(1.08) !important;
+}
+
+button:not(.btn-close), .btn:not(.btn-close) {
+    background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+button:hover, .btn:hover {
+    /* transform: scale(1.05) !important; */
+    opacity: 0.9 !important;
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4) !important;
+    color: white !important;
+}
+
+nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    transition: all 0.3s ease !important;
+}
+
+nav.scrolled {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff7e5f !important;
+}
+
+section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+.nav-link, .icon, button, a, .card {
+    cursor: pointer !important;
+}
+
+
+
+
+/* HERO PAGE */
+
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #fff5f2, #fdfbfb);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 30px 20px !important;
+}
+
+/* background circle */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #ffe5d9;
+  border-radius: 50%;
+  top: -100px;
+  right: -60px;
+  z-index: 0;
+}
+
+/* content */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+/* image animation */
+.hero img {
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+body {
+  background: linear-gradient(135deg, #fff5f2, #fdfbfb);
+  min-height: 100vh;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  /* 🔥 HERO CENTER FIX (ONLY THIS IS IMPORTANT) */
+  
+.hero {
+    max-width: 400px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+   /* hero section spacing */
+  .hero {
+    padding: 20px !important;
+    text-align: center;
+  }
+
+
+  /* Fix Bootstrap flex alignment issues */
+  .hero .row {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+  }
+
+  /* Center image using flexbox on container */
+  .hero .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center !important;
+    width: 100%;
+  }
+
+  /* heading */
+  .hero h2 {
+    font-size: 24px !important;
+  }
+
+  /* button */
+  .hero .btn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Ensure image has display:block, margin:auto, remove unwanted inline styles */
+  .hero img, .hero img[style] {
+    display: block !important;
+    margin: 0 auto !important; /* Override inline margin-left */
+    max-width: 100% !important;
+    height: auto !important;
+    /* Do not override animation transform, just reset left/right positioning */
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+/* ================= BHANTANI FIX ================= */
+
+/* @media (max-width: 768px) {
+
+  .bhantani-hero .col-md-6:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+  .bhantani-hero img {
+    display: block;
+    margin: 0 auto !important;
+    max-width: 75%;
+    height: auto;
+  }
+
+  .bhantani-hero img[style] {
+    margin-left: 0 !important;
+  }
 } */
+
+
+
+

@@ -227,3 +227,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCart();
 });
+
+// UI/UX DYNAMIC ENHANCEMENTS (AOS & NAVBAR)
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Add AOS CSS dynamically
+    const aosCSS = document.createElement("link");
+    aosCSS.rel = "stylesheet";
+    aosCSS.href = "https://unpkg.com/aos@2.3.4/dist/aos.css";
+    document.head.appendChild(aosCSS);
+
+    // 2. Add AOS JS dynamically
+    const aosScript = document.createElement("script");
+    aosScript.src = "https://unpkg.com/aos@2.3.4/dist/aos.js";
+    document.body.appendChild(aosScript);
+
+    aosScript.onload = function () {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50
+        });
+    };
+
+    // 3. Add AOS attributes to elements dynamically to avoid HTML changes
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card, index) => {
+        card.setAttribute("data-aos", "fade-up");
+        card.setAttribute("data-aos-delay", (index % 4) * 100);
+    });
+
+    const headings = document.querySelectorAll("h1, h2, h3");
+    headings.forEach(heading => {
+        heading.setAttribute("data-aos", "fade-right");
+    });
+
+    // 4. Sticky Navbar Scroll Effect
+    window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (nav) {
+            nav.classList.toggle("scrolled", window.scrollY > 50);
+        }
+    });
+});
